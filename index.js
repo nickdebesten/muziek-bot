@@ -15,11 +15,6 @@ client.on('message', message => {
   if (message.content === 'creator') {
     message.channel.send('a neef nickie is beste creator');
   }
-  if(message.content.startsWith("melding")){
-    var messagecontent = message.content.replace("melding ", "");
-    message.channel.send(messagecontent);
-    message.delete();
-  }
   if (message.content === 'muziek join') {
     // Only try to join the sender's voice channel if they are in one themselves
     if (!message.guild) {
