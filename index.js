@@ -16,7 +16,7 @@ client.on('message', message => {
     message.channel.send('a neef nickie is beste creator');
   }
   if(message.content.startsWith("melding")){
-    var messagecontent = message.content.replace("nb melding ", "");
+    var messagecontent = message.content.replace("melding ", "");
     message.channel.send(messagecontent);
     message.delete();
   }
