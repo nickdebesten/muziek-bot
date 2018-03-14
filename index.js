@@ -50,5 +50,15 @@ client.on('message', message => {
       })
       .catch(console.error);
     }
+      if(message.content.startsWith("muziekp")) {
+if (message.author.id == "254273544689680386" || message.author.id == "423524405394538496"){
+          var str = message.content;
+          var status = str.substr(7);
+          client.user.setActivity(status, { type: 'PLAYING' });
+          message.reply("de status van de bot is veranderd naar PLAYING nick.");
+      } else {
+        message.reply("wacht eens ff, jij ben nick niet... alleen nick kan dit commando gebruiken.");
+      }
+    }
 });
 client.login(process.env.TOKEN);
