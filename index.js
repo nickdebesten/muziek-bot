@@ -50,8 +50,7 @@ client.on('message', message => {
       })
       .catch(console.error);
     }
-      if(message.content.startsWith("muziekp")) {
-if (message.author.id == "254273544689680386" || message.author.id == "423524405394538496"){
+    if(message.content.startsWith("muziekp")) {
           var str = message.content;
           var status = str.substr(7);
           client.user.setActivity(status, { type: 'PLAYING' });
