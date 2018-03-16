@@ -2,6 +2,9 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const ytdl = require('ytdl-core');
 
+client.on('ready', () => {
+  console.log(` ${client.user.tag} is online!!!`);
+});
 
 client.on('message', message => {
   if (message.content === 'ping') {
@@ -9,11 +12,6 @@ client.on('message', message => {
   }
   if (message.content === 'pong') {
     message.reply('ping');
-  }
-
-
-  if (message.content === 'creator') {
-    message.channel.send('a neef nickie is beste creator');
   }
   if (message.content === 'muziek join') {
     // Only try to join the sender's voice channel if they are in one themselves
@@ -25,7 +23,7 @@ client.on('message', message => {
       message.member.voiceChannel.join()
         .then(connection => { // Connection is an instance of VoiceConnection
           message.reply('laat het feest maar beginnen!! :)');
-          connection.playStream("http://playerservices.streamtheworld.com/api/livestream-redirect/TLPSTR11.mp3");
+          connection.playStream("http://stream.radiocorp.nl/web10_mp3");
         })
         .catch(console.log);
     } else {
@@ -49,15 +47,6 @@ client.on('message', message => {
         const dispatcher = connection.playStream(stream, streamOptions);
       })
       .catch(console.error);
-    }
-    if(message.content.startsWith("muziekp")) {
-          var str = message.content;
-          var status = str.substr(7);
-          client.user.setActivity(status, { type: 'PLAYING' });
-          message.reply("de status van de bot is veranderd naar PLAYING nick.");
-      } else {
-        message.reply("wacht eens ff, jij ben nick niet... alleen nick kan dit commando gebruiken.");
-      }
     }
 });
 client.login(process.env.TOKEN);
